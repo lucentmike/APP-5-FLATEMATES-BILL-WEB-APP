@@ -19,6 +19,7 @@ class BillFormPage(MethodView):
         bill_form = BillForm()
         return render_template('bill_form_page.html', billform=bill_form)
 
+#Creates a results page method that posts the out to the webpafe. Uss tehe request.form to pull information from the form
 class ResultsPage(MethodView):
     def post(self):
         billform = BillForm(request.form)
@@ -29,7 +30,7 @@ class ResultsPage(MethodView):
 
         return render_template('results.html', name1 = flatmate1.name, amount1 = flatmate1.pays(the_bill, flatmate2), name2 = flatmate2.name, amount2 = flatmate2.pays(the_bill, flatmate1))
 
-
+#Creates the bill form that inherits from the wtforms, forms. 
 class BillForm(Form):
     amount = StringField(label = 'Bill Amount: ' , default = 100)
     period = StringField(label= 'Bill Period: ' , default = 'December' )
