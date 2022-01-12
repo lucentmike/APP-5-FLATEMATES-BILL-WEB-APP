@@ -21,4 +21,4 @@ class Flatmate:
 
     def pays(self, bill, flatmate2):
         weight = self.days_in_house / (self.days_in_house + flatmate2.days_in_house)
-        return bill.amount * weight 
+        return round(bill.amount * weight ,2) 
